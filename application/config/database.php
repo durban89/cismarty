@@ -48,10 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
+$db['default']['hostname'] = '127.0.0.1';
 $db['default']['username'] = 'root';
-$db['default']['password'] = '123456';
-$db['default']['database'] = 'test_xinfushi';
+$db['default']['password'] = '';
+$db['default']['database'] = 'cismarty';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = 'sk_';
 $db['default']['pconnect'] = TRUE;
