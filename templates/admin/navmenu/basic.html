@@ -1,0 +1,65 @@
+{#include file="admin/public/basic.html"#}
+<link href="/static/css/admin/common.css" type="text/css" rel="stylesheet" />
+<link href="/static/css/colorpicker.css" rel="stylesheet"/>
+<script type="text/javascript" src="/static/js/colorpicker.js"></script>
+<script type="text/javascript" src="/static/js/datepicker/WdatePicker.js"></script>
+<body>
+<div class="manageBoxs">
+    {#include file='admin/navmenu/choosenav.html'#}
+    <div class="itemSrhBoxs">
+        <ul class="keySearchBoxs">
+            <li style="padding:0px;">&nbsp;</li>
+        </ul>
+    </div>
+    <div id="itemListBoxs" class="itemListBoxs m10">
+        <form action="{#$actionurl#}" name="FORM" method="post">
+            <table width="100%" border="0" cellspacing="1" cellpadding="5" style="background:#EAEAEA;">
+                <tr class="itemTitleTr">
+                    <td width="5%" align="center" class="tac"><span class="cp" onClick="CheckAll(document.FORM, 1)">全选</span></td>
+                    <td width="5%" align="center">启用</td>
+                    <td>【顺序】菜单名称</td>
+                    <td width="15%" align="center">标识</td>
+                    <td width="30%" align="center">链接地址</td>
+                    <td width="10%" align="center">操作</td>
+                </tr>
+                {#$tableinfo#}
+                {#if $strPages#}
+                <tr class="listPageTr">
+                    <td colspan="9" align="center"><div class="pageBoxs"> {#$strPages#}</div></td>
+                </tr>
+                {#/if#}
+                <tr class="listPageTr">
+                    <td colspan="10" align="left" style="background:#FEFFEE;">
+                        <span id="lk_submit"><a href="javascript:;" onClick="CheckAll(document.FORM);">全选</a></span>
+                        <span id="lk_submit"><a href="javascript:;" onClick="CheckAll(document.FORM, '');">反选</a></span>
+                        <div style="width:auto;float:right;">
+                                <span style="width:auto;float:left;padding:3px 15px 0 0;font-size:14px;">
+                                    <span>选中操作：</span>
+                                    <select id="job" name="job">
+                                        <option value="del">删除</option>
+                                    </select>
+                                </span>
+                            <span><input type="submit" value="提交" id="submit" onclick="return confirm('您确定执行该操作吗？');" /></span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function() {
+        $('.menu_filed b').live('click', function() {
+            var obj = $(this).parent(), id = $(obj).attr('rel');
+            $(".child_" + id).show();
+            obj.attr('class', 'menu_filed_an');
+        });
+        $('.menu_filed_an b').live('click', function() {
+            var obj = $(this).parent(), id = $(obj).attr('rel');
+            $(".child_" + id).hide();
+            obj.attr('class', 'menu_filed');
+        });
+    });
+</script>
+</body>
+</html>

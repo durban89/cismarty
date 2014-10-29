@@ -1,0 +1,195 @@
+/* CSS Document */
+html,body{height:100%;overflow:hidden;}
+body { padding:0px;margin:0 auto;width:100%;height:100%;overflow:hidden; }
+a{ color:#333333;text-decoration:none;font-size:12px;blr:expression_r(this.onFocus=this.blur()) }
+area {blr:expression_r(this.onFocus=this.blur())}
+a:hover { color:#FF3300;text-decoration:none; }
+a img { border:none; }
+li,ul,dl,dt,dd,formtable,tr,td,form,p,h1,h2,h3,h4,h5 { border:0px;margin:0px;padding:0px;list-style-type:none; }
+em { font-style:normal; }
+
+.headerBoxs, .mainBoxs, .mainBoxs .leftNavBoxs, .mainBoxs .rightNavBoxs { position:absolute; }
+
+/***管理中心头部样式**/
+.headerBoxs {
+	width:100%;height:68px;top:0px;left:0px;
+	background:url(/static/images/admin/icon.png) repeat-x 0px -1075px #0F7FC1;
+}
+.headerBoxs ul { position:relative;width:100%;float:left;margin:0px;padding:0px;height:68px; }
+.headerBoxs a { font-size:12px;color:#FFF; }
+.headerBoxs a:hover { text-decoration:underline; }
+
+.headerBoxs .headerMenu{float:left; margin-top:15px;}
+.headerBoxs .headerMenu a{width:185px; height:50px; line-height:60px; float:left; display:inline; margin-left:-15px; text-align:center; background:url(/static/images/admin/icon.png) no-repeat 0 -1250px; font-size:18px; font-family:'微软雅黑';}
+.headerBoxs .headerMenu a:hover,
+.headerBoxs .headerMenu a.on{background:url(/static/images/admin/icon.png) no-repeat 0 -1305px; color:#0d72ad;text-decoration:none;}
+
+.headerBoxs .headerNav {line-height:180%;font-size:12px;color:#FFF;text-align:right;font-family:Arial; float:right; margin:8px 0;}
+.headerBoxs .headerNav strong { color:#FC0; }
+.headerBoxs .headerNav div a { margin-left:6px;font-family:'宋体'; }
+.headerBoxs .photoBoxs { width:47px;height:47px;position:absolute;right:15px;top:9px;overflow:hidden; } 
+.headerBoxs .photoBoxs img { width:45px;height:45px;border:1px solid #ccc;margin:1px;display:inline; }
+.headerBoxs .logoBoxs{float:right; margin:8px 60px 5px 10px; border-left:1px solid #FFF; padding-left:10px}
+
+
+.mainBoxs { bottom:0;left:0;right:0;top:68px; }
+.mainBoxs .leftNavBoxs {
+	background:none repeat scroll 0 0 #EEF2F7;
+    border-right:1px solid #AFB7C3;
+    overflow:hidden;
+    height:100%;
+    left:0;
+    top:0;
+    width:99px;
+}
+
+/*=====左侧菜单=====*/
+.topArrow,.bottomArrow{ height:10px; cursor:pointer; background:url("/static/images/admin/mcm-icon-new.png") no-repeat #dcdcdc;}
+.topArrow{ border-bottom:1px solid #dededf; background-position:26px -82px; position:relative;}
+.bottomArrow{ border-top:1px solid #dededf; background-position:26px -96px; width:99px; position:absolute; bottom:0; left:0;}
+.topArrowMouseover,.bottomArrowMouseover{ height:10px; cursor:pointer; background:url("/static/images/admin/mcm-icon-new.png") no-repeat #039be4;}
+.topArrowMouseover{ border-bottom:1px solid #0289c9; background-position:-77px -82px;}
+.bottomArrowMouseover{ border-top:1px solid #0289c9; background-position:-77px -96px;}
+.lkMenu {width:78px;}
+.lkMenu ul{margin:8px 0;}
+.lkMenu li{width:78px;height:70px;margin:1px 11px;text-align:center;color:#777;font-size:12px;line-height:180%;}
+.lkMenu li a{color:#555;display:block;width:78px;height:70px;font-size:12px;}
+.lkMenu li a:hover{background:url(/static/images/admin/icon.png) no-repeat -1px -694px;color:#4b91d0;}
+.lkMenu li.current{font-size:14px;color:#333;}
+.lkMenu li.current a{background:url(/static/images/admin/icon.png) no-repeat -1px -694px;font-size:14px;}
+.lkMenu li.current a:hover{background:url(/static/images/admin/icon.png) no-repeat -84px -694px;}
+.lkMenu i,.lkMenu .current i,.lkMenu a:hover i{background:url(/static/images/admin/icon.png) no-repeat;width:48px;height:42px;display:block;margin:0 15px;}
+.lkMenu i.icon-1{background-position:-49px -63px;}
+.lkMenu i.icon-2{background-position:-49px -121px;}
+.lkMenu i.icon-3{background-position:-49px -173px;}
+.lkMenu i.icon-4{background-position:-49px -233px;}
+.lkMenu i.icon-5{background-position:-49px -305px;}
+.lkMenu i.icon-6{background-position:-49px -365px;}
+.lkMenu i.icon-7{background-position:-49px -443px;}
+.lkMenu i.icon-8{background-position:-49px -509px;}
+.lkMenu i.icon-9{background-position:-49px -1374px;}
+.lkMenu i.icon-10{background-position:-49px -1430px;}
+.lkMenu i.icon-11{background-position:-49px -1490px;}
+.lkMenu i.icon-12{background-position:-49px -1550px;}
+.lkMenu i.icon-13{background-position:-49px -1600px;}
+.lkMenu i.icon-14{background-position:-49px -1645px;}
+.lkMenu i.icon-15{background-position:-49px -1710px;}
+.lkMenu i.icon-16{background-position:-49px -1765px;}
+.lkMenu i.icon-17{background-position:-49px -1825px;}
+.lkMenu i.icon-18{background-position:-49px -1875px;}
+.lkMenu i.icon-19{background-position:-49px -1935px;}
+.lkMenu i.icon-20{background-position:-49px -1985px;}
+.lkMenu i.icon-21{background-position:-49px -2030px;}
+.lkMenu i.icon-22{background-position:-49px -2090px;}
+.lkMenu i.icon-23{background-position:-49px -2145px;}
+.lkMenu i.icon-24{background-position:-49px -2195px;}
+.lkMenu i.icon-25{background-position:-49px -2250px;}
+.lkMenu i.icon-26{background-position:-49px -2300px;}
+.lkMenu i.icon-27{background-position:-49px -2350px;}
+.lkMenu i.icon-28{background-position:-49px -22400px;}
+.lkMenu i.icon-29{background-position:-49px -2450px;}
+.lkMenu i.icon-30{background-position:-49px -2500px;}
+.lkMenu i.icon-31{background-position:-49px -2550px;}
+.lkMenu i.icon-32{background-position:-49px -2600px;}
+
+.lkMenu a:hover i.icon-1{background-position:-99px -63px;}
+.lkMenu a:hover i.icon-2{background-position:-99px -121px;}
+.lkMenu a:hover i.icon-3{background-position:-99px -173px;}
+.lkMenu a:hover i.icon-4{background-position:-99px -233px;}
+.lkMenu a:hover i.icon-5{background-position:-99px -305px;}
+.lkMenu a:hover i.icon-6{background-position:-99px -365px;}
+.lkMenu a:hover i.icon-7{background-position:-99px -443px;}
+.lkMenu a:hover i.icon-8{background-position:-99px -509px;}
+.lkMenu a:hover i.icon-9{background-position:-99px -1374px;}
+.lkMenu a:hover i.icon-10{background-position:-99px -1430px;}
+.lkMenu a:hover i.icon-11{background-position:-99px -1490px;}
+.lkMenu a:hover i.icon-12{background-position:-99px -1550px;}
+.lkMenu a:hover i.icon-13{background-position:-99px -1600px;}
+.lkMenu a:hover i.icon-14{background-position:-99px -1645px;}
+.lkMenu a:hover i.icon-15{background-position:-99px -1710px;}
+.lkMenu a:hover i.icon-16{background-position:-99px -1765px;}
+.lkMenu a:hover i.icon-17{background-position:-99px -1825px;}
+.lkMenu a:hover i.icon-18{background-position:-99px -1875px;}
+.lkMenu a:hover i.icon-19{background-position:-99px -1935px;}
+.lkMenu a:hover i.icon-20{background-position:-99px -1985px;}
+.lkMenu a:hover i.icon-21{background-position:-99px -2030px;}
+.lkMenu a:hover i.icon-22{background-position:-99px -2090px;}
+.lkMenu a:hover i.icon-23{background-position:-99px -2145px;}
+.lkMenu a:hover i.icon-24{background-position:-99px -2195px;}
+.lkMenu a:hover i.icon-25{background-position:-99px -2250px;}
+.lkMenu a:hover i.icon-26{background-position:-99px -2300px;}
+.lkMenu a:hover i.icon-27{background-position:-99px -2350px;}
+.lkMenu a:hover i.icon-28{background-position:-99px -22400px;}
+.lkMenu a:hover i.icon-29{background-position:-99px -2450px;}
+.lkMenu a:hover i.icon-30{background-position:-99px -2500px;}
+.lkMenu a:hover i.icon-31{background-position:-99px -2550px;}
+.lkMenu a:hover i.icon-32{background-position:-99px -2600px;}
+
+.lkMenu .current i.icon-1{background-position:-148px -63px;}
+.lkMenu .current i.icon-2{background-position:-148px -121px;}
+.lkMenu .current i.icon-3{background-position:-148px -173px;}
+.lkMenu .current i.icon-4{background-position:-148px -233px;}
+.lkMenu .current i.icon-5{background-position:-148px -305px;}
+.lkMenu .current i.icon-6{background-position:-148px -365px;}
+.lkMenu .current i.icon-7{background-position:-148px -443px;}
+.lkMenu .current i.icon-8{background-position:-148px -509px;}
+
+.lkMenu .current i.icon-9{background-position:-148px -1374px;}
+.lkMenu .current i.icon-10{background-position:-148px -1430px;}
+.lkMenu .current i.icon-11{background-position:-148px -1490px;}
+.lkMenu .current i.icon-12{background-position:-148px -1550px;}
+.lkMenu .current i.icon-13{background-position:-148px -1600px;}
+.lkMenu .current i.icon-14{background-position:-148px -1645px;}
+.lkMenu .current i.icon-15{background-position:-148px -1710px;}
+.lkMenu .current i.icon-16{background-position:-148px -1765px;}
+.lkMenu .current i.icon-17{background-position:-148px -1825px;}
+.lkMenu .current i.icon-18{background-position:-148px -1875px;}
+.lkMenu .current i.icon-19{background-position:-148px -1935px;}
+.lkMenu .current i.icon-20{background-position:-148px -1985px;}
+.lkMenu .current i.icon-21{background-position:-148px -2030px;}
+.lkMenu .current i.icon-22{background-position:-148px -2090px;}
+.lkMenu .current i.icon-23{background-position:-148px -2145px;}
+.lkMenu .current i.icon-24{background-position:-148px -2195px;}
+.lkMenu .current i.icon-25{background-position:-148px -2250px;}
+.lkMenu .current i.icon-26{background-position:-148px -2300px;}
+.lkMenu .current i.icon-27{background-position:-148px -2350px;}
+.lkMenu .current i.icon-28{background-position:-148px -22400px;}
+.lkMenu .current i.icon-29{background-position:-148px -2450px;}
+.lkMenu .current i.icon-30{background-position:-148px -2500px;}
+.lkMenu .current i.icon-31{background-position:-148px -2550px;}
+.lkMenu .current i.icon-32{background-position:-148px -2600px;}
+.lkMenu a:hover i{-webkit-transition: all .2s ease-in;Moz-transition: all .2s ease-in;-o-transition: all .2s ease-in;Ms-transition: all .2s ease-in;transition: all .2s ease-in;}
+
+.mainBoxs .rightNavBoxs { bottom:0;left:100px;right:0;top:0;background:#ccc; }
+.mainBoxs .rightNavBoxs iframe {
+	background: none repeat scroll 0 0 #FFFFFF;
+	border: 0 none;
+	bottom: 0;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

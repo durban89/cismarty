@@ -1,0 +1,156 @@
+{#include file="admin/public/basic.html"#}
+<body>
+    <div class="manageBoxs">
+        <h1><i></i>系统设置 &raquo; SEO设置</h1>
+        <div class="formBoxs admin_table">
+            <form name="FORM" method="post" action="{#$actionurl#}" id="basicFrom" enctype="multipart/form-data">
+                <table width="100%" border="0" cellspacing="1" cellpadding="5">	
+                    <tr class="tr2 td_bgB">
+                        <td width="15%">设置说明</td>
+                        <td width="45%">设置内容</td>		
+                        <td>调用变量</td>
+                    </tr>
+                    <tr class="tr1 vt" style="display:none;">
+                        <td class="td1">URL重写扩展名</td>
+                        <td class="td2">
+                            {#$config.lk_rewriteext#}
+                        </td>
+                        <td class="td2"><div class="help_a" style="display: block;">
+                                [lk_rewriteext]&nbsp;&nbsp;只针对rewrite开启的情况，默认为 html。如果设置其他后缀名请重新设定url重写配置文件。
+                            </div></td> 
+                    </tr>
+
+                    {#if $IN_REWRITE#}
+                    <tr class="tr1 vt" style="display:none;">
+                        <td class="td1">是否开启伪静态</td>
+                        <td class="td2">
+                            <input type="radio" {#$rewriteenable_1#} name="config[lk_rewriteenable]" value="1" class="radio">&nbsp;开启
+                            <input type="radio" {#$rewriteenable_0#} name="config[lk_rewriteenable]" value="0" class="radio">&nbsp;关闭             
+                        </td>
+                        <td class="td2"><div class="help_a" style="display: block;">
+                                [lk_rewriteenable]&nbsp;&nbsp;
+                            </div></td>
+                    </tr>
+                    {#/if#}
+
+                    <tr class="tr1 vt" style="display:none;">
+                        <td class="td1">伪静态是否添加扩展名</td>
+                        <td class="td2">
+                            <input type="radio" {#$extenable_1#} name="config[lk_extenable]" value="1" class="radio">&nbsp;开启
+                            <input type="radio" {#$extenable_0#} name="config[lk_extenable]" value="0" class="radio">&nbsp;关闭             
+                        </td>
+                        <td class="td2"><div class="help_a" style="display: block;">
+                                [lk_extenable]&nbsp;&nbsp;如果选择添加扩展，将在每个链接后加扩展名，否则所有链接将以目录形式展现。<br/>
+                                目录形式：show/1，连接形式：show/1.html
+                            </div></td>
+                    </tr>
+
+                    <tr class="tr1 vt" style="display:none;">
+                        <td class="td1">分类伪静态目录</td>
+                        <td class="td2">
+                            <input name="config[lk_chtmldir]" value="{#$config.lk_chtmldir#}" class="input input_wa"> 
+                        </td>
+                        <td class="td2"><div class="help_a" style="display: block;">
+                                [lk_chtmldir]&nbsp;&nbsp;分类全局伪静态目录，此参数需要伪静态规则配合。默认为：category。
+                            </div></td>
+                    </tr>
+
+                    <tr class="tr1 vt" style="display:none;">
+                        <td class="td1">主题伪静态目录</td>
+                        <td class="td2"> 
+                            <input name="config[lk_shtmldir]" value="{#$config.lk_shtmldir#}" class="input input_wa">                                            
+                        </td>
+                        <td class="td2"><div class="help_a" style="display: block;">
+                                [lk_shtmldir]&nbsp;&nbsp; 主题伪静态目录。
+                            </div></td>
+                    </tr>
+
+                    {#if $IN_SEO#}
+                    <tr class="tr1 vt" style="display:none;">
+                        <td class="td1">是否开启SEO模块</td>
+                        <td class="td2">
+                            <input type="radio" {#$seoenable_1#} name="config[lk_seoenable]" value="1" class="radio">&nbsp;开启
+                            <input type="radio" {#$seoenable_0#} name="config[lk_seoenable]" value="0" class="radio">&nbsp;关闭             
+                        </td>
+                        <td class="td2"><div class="help_a" style="display: block;">
+                                [lk_seoenable]&nbsp;&nbsp;
+                            </div></td>
+                    </tr>
+                    {#/if#}
+                    <tr class="tr1 vt">
+                        <td class="td1">网站标题（Title）</td>
+                        <td class="td2">
+                            <textarea name="config[lk_seotitle]" class="textarea">{#$config.lk_seotitle#}</textarea>                        
+                        </td>
+                        <td class="td2"><div class="help_a" style="display: block;">
+                                [lk_seotitle] &nbsp;&nbsp;显示网站标题，如果有多个关键字，建议用 "|"、","(不含引号) 等符号分隔。			        
+                            </div>
+                            </div></td>
+                    </tr>	
+
+                    <tr class="tr1 vt">
+                        <td class="td1">网站关键字（Keywords）</td>
+                        <td class="td2">
+                            <textarea name="config[lk_seokeywords]" class="textarea">{#$config.lk_seokeywords#}</textarea>  
+                        </td>
+                        <td class="td2"><div class="help_a" style="display: block;">				
+                                [lk_seokeywords]&nbsp;&nbsp;显示网站内容的关键字，多个关键字间请用半角逗号 "," 隔开。
+                            </div></td>
+                    </tr>
+                    <tr class="tr1 vt">
+                        <td class="td1">网站描述（Description）</td>
+                        <td class="td2">  
+                            <textarea class="textarea" name="config[lk_seodescription]">{#$config.lk_seodescription#}</textarea>       
+                        </td>              
+                        <td class="td2"><div class="help_a" style="display: block;">
+                                [lk_seodescription]&nbsp;&nbsp;网站描述主旨鲜明、简单明了,要有创意、突出热点,多样化、独立化,出现关键词、优化词
+                            </div></td>
+                    </tr>
+                    <tr class="tr1 vt" style="display:none;">
+                        <td class="td1">其他头部信息</td>
+                        <td class="td2">               
+                            <textarea class="textarea" name="config[lk_seomore]">{#$config.lk_seomore#}</textarea>  
+                        </td>              
+                        <td class="td2"><div class="help_a" style="display: block;">
+                                [lk_seomore]&nbsp;&nbsp;在 <head></head> 中添加其他的 html 代码。
+                            </div></td>
+                    </tr>
+                    <tr class="tr1 vt">
+                        <td align="right" class="td1">&nbsp;</td>
+                        <td class="td2" colspan="2"><input type="hidden" name="cid" id="cid" value="25" />
+                            <input type="hidden" name="submitted" id="submitted" value="save" />
+                            <span id="lk_submit"><a href="javascript:;" id="submitFrom">提交</a></span>
+                            <span id="lk_submit"><a href="javascript:;" id="resetBtn">重填</a></span>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div style="width:100%;height:15px;float:left;">&nbsp;</div>
+    </div>
+    <script type="text/javascript">
+        $(function() {
+            $('#submitFrom').click(function() {
+                var options = {
+                    beforeSubmit: function() {
+                    },
+                    success: function(txt) {
+                        if (txt == 1) {
+                            altTip('信息更新成功！', 'succeed', function() {
+                                location.reload();
+                            });
+                            return false;
+                        } else {
+                            altTip('信息更新失败！', 'error', function() {
+                            });
+                            return false;
+                        }
+                    }
+                };
+                $('#basicFrom').ajaxSubmit(options);
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>

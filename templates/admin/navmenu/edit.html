@@ -1,0 +1,98 @@
+{#include file="admin/public/basic.html"#}
+<link href="/static/css/admin/common.css" type="text/css" rel="stylesheet" />
+<body>
+<div class="manageBoxs">
+    {#include file='admin/navmenu/choosenav.html'#}
+    <div class="itemSrhBoxs">
+        <ul class="keySearchBoxs"></ul>
+    </div>
+    <div class="formBoxs admin_table">
+        <form method="post" action="" id="checkform"  name="checkform" enctype="multipart/form-data">
+            <table width="100%" border="0" cellspacing="1" cellpadding="5">
+                <tr class="tr1 vt">
+                    <td class="td1" width="15%">&nbsp;&nbsp;所属父类<span style='color:#F30;'>*</span></td>
+                    <td class="td2">&nbsp;&nbsp;
+                        <select name="menu_from[sub]" id="sub">
+                            <option value="0">作为一级菜单</option>
+                            {#$option#}
+                        </select>
+                    </td>
+                </tr>
+                <tr class="tr1 vt">
+                    <td class="td1">&nbsp;&nbsp;菜单名称<span style='color:#F30;'>*</span></td>
+                    <td class="td2">&nbsp;&nbsp;<input type="text" class="input input_wb" style="width:200px;" value="{#$info.name#}" id="name" name="menu_from[name]"></td>
+                </tr>
+                <tr class="tr1 vt">
+                    <td class="td1">&nbsp;&nbsp;自定义action</td>
+                    <td class="td2">&nbsp;&nbsp;<input type="text" class="input input_wb" style="width:200px;" value="{#$info.topkey#}" id="topkey" name="menu_from[topkey]"></td>
+                </tr>
+                <tr class="tr1 vt">
+                    <td class="td1">&nbsp;&nbsp;标识<span style='color:#F30;'>*</span></td>
+                    <td class="td2">&nbsp;&nbsp;<input type="text" class="input input_wb" style="width:200px;" value="{#$info.mkey#}" id="mkey" name="menu_from[mkey]"></td>
+                </tr>
+                <tr class="tr1 vt" id="icon_tr">
+                    <td class="td1">&nbsp;&nbsp;图标样式<span style='color:#F30;'>*</span></td>
+                    <td class="td2">&nbsp;&nbsp;<input type="text" class="input input_wb" style="width:200px;" value="{#$info.icon#}" id="icon" name="menu_from[icon]"></td>
+                </tr>
+                <tr class="tr1 vt">
+                    <td class="td1">&nbsp;&nbsp;显示顺序<span style='color:#F30;'>*</span></td>
+                    <td class="td2">&nbsp;&nbsp;<input type="text" class="input input_wb" style="width:200px;" value="{#$info.sort#}" id="sort" name="menu_from[sort]"></td>
+                </tr>
+                <tr class="tr1 vt">
+                    <td class="td1">&nbsp;&nbsp;是否显示<span style='color:#F30;'>*</span></td>
+                    <td class="td2">
+                        &nbsp;&nbsp;<label><input type="radio" value="0" id="isopen0" {#if $info.isopen eq 0#}checked{#/if#} name="menu_from[isopen]">&nbsp;不显示</label>
+                        &nbsp;&nbsp;<label><input type="radio" value="1" {#if $info.isopen eq 1#}checked{#/if#} id="isopen1" name="menu_from[isopen]">&nbsp;显示</label>
+                    </td>
+                </tr>
+                <tr class="tr1 vt">
+                    <td class="td1">&nbsp;</td>
+                    <td class="td2">
+                        <input type="hidden" value="save" id="action" name="submitted">
+                        <span class="btn"><span><button type="submit" value="提  交" id="submitFrom" name="submitted">提 交</button></span></span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#submitFrom').click(function() {
+            var options = {
+                beforeSubmit: function() {
+                },
+                success: function(txt) {
+                    if (txt == 1) {
+                        altTip('信息更新成功！', 'succeed', function() {
+                            location.href='{#site_url("admin/navmenu/basic")#}';
+                        });
+                        return false;
+                    } else {
+                        altTip('信息更新失败！', 'error', function() {
+                        });
+                        return false;
+                    }
+                }
+            };
+            $('#checkform').ajaxSubmit(options);
+            return false;
+        });
+
+        $('#sub').change(function(){
+            if ($(this).val() == 0){
+                $('#icon_tr').show();
+            } else {
+                $('#icon_tr').hide();
+            }
+        });
+
+        if( $('#sub').val() != 0 ){
+            $('#icon_tr').hide();
+        }
+
+    });
+</script>
+</body>
+</html>

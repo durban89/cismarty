@@ -16,7 +16,8 @@ class CI_Smarty extends Smarty {
             $this->compile_dir = $compile_dir ? $compile_dir : ROOT . '/templates_c';
             $this->config_dir = $config_dir ? $config_dir : ROOT . '/config';
             $this->cache_dir = $cache_dir ? $cache_dir : ROOT . '/cache';
+            $this->left_delimiter = '{#';
+            $this->right_delimiter = '#}';
         }
     }
- 
 }

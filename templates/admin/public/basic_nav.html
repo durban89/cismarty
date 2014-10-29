@@ -1,0 +1,15 @@
+<h1>{#$menu_arr.name#}</h1>
+{#foreach from=$menu_arr.subcate item=v#}
+{#if $v.isopen && allowShow($v.allow)#}
+<div class="maxNavBoxs">
+    <a href="javascript:;" class="current maxA" target="targetBoxs"><i></i><span></span>{#$v.name#}</a>
+    <ul class="sonNavBox" style="display:block;">
+        {#foreach from=$v.subcate item=row#}
+        {#if $row.isopen && allowShow($v.allow)#}
+        <a href="{#if $row.topkey#}{#site_url("admin/{#$row.topkey#}/{#$row.mkey#}")#}{#else#}{#site_url("admin/{#$v.mkey#}/{#$row.mkey#}")#}{#/if#}" class="minA" target="targetBoxs"><i></i><span></span>{#$row.name#}</a>
+        {#/if#}
+        {#/foreach#}
+    </ul>
+</div>
+{#/if#}
+{#/foreach#}

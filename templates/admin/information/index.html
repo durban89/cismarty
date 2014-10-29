@@ -1,0 +1,33 @@
+{#include file="admin/public/basic.html"#}
+<link href="/static/css/admin/common.css" type="text/css" rel="stylesheet" />
+<body>
+<div class="mainBoxs">
+    <table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td id="leftSonNavBox" valign="top" width="150" height="100%"><div class="leftSonNavBox">{#include file="admin/public/basic_nav.html"#}</div></td>
+            <td width="9" height="100%" valign="top"><div id="navToggler" class="navToggler">&nbsp;</div></td>
+            <td valign="top" height="100%" id="bodyMainBoxs">
+                <iframe src="#" name="targetBoxs" scrolling="0" frameborder="0" height="100%"></iframe>&nbsp;
+            </td>
+        </tr>
+    </table>
+</div>
+<script type='text/javascript'>
+    $(function() {
+        //二级菜单点击效果
+        $('.sonNavBox a').click(function() {
+            $('.sonNavBox a').removeClass('current');
+            $(this).addClass('current');
+        }).first().trigger('click');
+
+        var url = $('.sonNavBox a').first().attr('href');
+        $('#bodyMainBoxs').find('iframe').attr('src', url);
+
+        var b_height = $('body').height();
+        $('.leftSonNavBox').height(b_height);
+        $('#navToggler').height(b_height);
+        $('#bodyMainBoxs').height(b_height);
+    });
+</script>
+</body>
+</html>

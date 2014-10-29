@@ -1,0 +1,68 @@
+{#include file="admin/public/header.html"#}
+
+<div class="mainBoxs">
+    <div class="leftNavBoxs">
+        <div id="topArrow" class="topArrow" onmouseout="removeCss(this)" onmouseover="addCss(this)"></div>
+        <div class="lkMenu switch">
+            <ul id="UI">
+                {#foreach $_menus as $v#}
+                {#if allowShow($v.mkey)#}
+                <li><a title="{#$v.name#}" target="main" href="{#site_url("admin/{#$v.mkey#}/index")#}"><i class="{#$v.icon#}"></i><span>{#$v.name#}</span></a></li>
+                {#/if#}
+                {#/foreach#}
+            </ul>
+        </div>
+        <div id="bottomArrow" class="bottomArrow"></div>
+    </div>
+    <div class="rightNavBoxs">
+        <iframe src="{#site_url("admin/main/index")#}" frameborder="0" name="main"></iframe>
+    </div>
+</div>
+<script type="text/javascript">
+    //更改顶部样式
+    function ChangeNavigationClass(obj) {
+        $(obj).addClass("current").siblings("li").removeClass("current");
+    }
+    function addCss(obj) {
+        $(obj).addClass("topArrowMouseover");
+    }
+    function removeCss(obj) {
+        $(obj).removeClass().addClass("topArrow");
+    }
+    $(document).ready(function() {
+        $("#Ul li:first-child").addClass("current");
+        $("#bottomArrow").on('mouseenter',function() {
+            $(this).addClass("bottomArrowMouseover");
+        }).on('mouseleave',function() {
+            $(this).removeClass("bottomArrowMouseover").addClass("bottomArrow");
+        });
+        $(".switch").Scroll({line: 1, speed: 200, up: "bottomArrow", down: "topArrow"});
+        $("#UI").find("a").click(function() {
+            $(this).parent().addClass("current").siblings().removeClass("current");
+        });
+    });
+
+    //消息提醒
+    function showWarningToast(message) {
+        $().toastmessage('showWarningToast', message);
+    }
+
+    function borrow_message(){
+        setInterval(function(){
+            $.ajax({
+                url:'{#site_url("admin/request/ajax")#}',
+                data:{'act':'borrow_message'},
+                dataType:'json',
+                type:'post',
+                success:function(o){
+                    if(o.status == 'ok' && o.msg){
+                        showWarningToast(o.msg);
+                    }
+                }
+            });
+        },5000);
+    }
+//    borrow_message();
+</script>
+</body>
+</html>
